@@ -23,4 +23,16 @@ pyautogui.press('enter')
 
 time.sleep(3) # Setando tempo para esperar fazer uma acao
 
+# 2. Fazer Login
+
+pyautogui.click(x=779, y=389) # Clica no campo de email
+pyautogui.write("teste@gmail.com") # Digita
+pyautogui.press('tab') 
+
+pyautogui.click(x=720, y=488) # Clica no campo de senha
+pyautogui.write('123456') # Digita 
+pyautogui.press('enter')
+
+time.sleep(3)
+
 
