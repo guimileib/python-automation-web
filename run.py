@@ -35,4 +35,53 @@ pyautogui.press('enter')
 
 time.sleep(3)
 
+# 3. Importar base de dados
+tabela = pandas.read_csv("produtos.csv") # Tabela recebe 
 
+print(tabela)
+
+# 4. Cadastrar 1 produto
+'''codigo = 'MOLO000251'
+marca = 'Logitech'
+tipo = 'Mouse'
+categoria = "1"
+preco_unitario = "25.95"
+custo = "6.5"
+obs = '''
+
+#  Estava dando bug
+for linha in tabela.index:
+    pyautogui.click(x=802, y=279) # Entrar no primeiro campo   
+
+    codigo = tabela.loc[linha, "codigo"] # .loc[linha, coluna]
+    pyautogui.write(codigo)
+    pyautogui.press('tab')
+
+    marca = tabela.loc[linha, "marca"]
+    pyautogui.write(marca)
+    pyautogui.press('tab')
+
+    tipo = tabela.loc[linha, "tipo"]
+    pyautogui.write(tipo)
+    pyautogui.press('tab')
+
+    categoria = tabela.loc[linha, "categoria"]    
+    pyautogui.write(str(categoria))
+    pyautogui.press('tab')
+
+    preco_unitario = tabela.loc[linha, "preco_unitario"]
+    pyautogui.write(str(preco_unitario))
+    pyautogui.press('tab')
+
+    custo = tabela.loc[linha, "custo"]
+    pyautogui.write(str(custo))
+    pyautogui.press('tab')
+
+    obs = tabela.loc[linha, "obs"]
+    if obs != 'nan':
+        pyautogui.write(str(obs))
+        
+    pyautogui.press('tab')
+    pyautogui.press('enter')
+
+    pyautogui.scroll(10000) # A cada 100 é um pixel de scroll
